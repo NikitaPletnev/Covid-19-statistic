@@ -8,7 +8,7 @@ import {setConfirmed} from "../store/actions/setConfirmed";
 import {AnyAction} from "redux";
 import {Dispatch} from "react";
 
-export const init = (dispatch:  Dispatch<AnyAction>) => {
+export const init = (dispatch: Dispatch<AnyAction>) => {
     getCountries().then((response) => {
         response.json().then((result: { countries: CountryInterface[] }) => {
             dispatch(setCountries(result.countries))
@@ -25,7 +25,11 @@ export const init = (dispatch:  Dispatch<AnyAction>) => {
     });
     getValuesTotal().then((response) => {
         response.json().then((result: any) => {
-            dispatch(setValuesTotal([result.recovered.value, result.confirmed.value, result.deaths.value]))
+            dispatch(setValuesTotal({
+                recovered: result.recovered.value,
+                confirmed: result.confirmed.value,
+                deaths: result.deaths.value
+            }))
         })
     }).catch((err) => {
         console.log(err)

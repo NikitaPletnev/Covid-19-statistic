@@ -1,0 +1,33 @@
+img {
+    border-right: 2px solid #dfdcec;
+    padding-right: 70px;
+}
+
+.selectorActive {
+   color: #28233d !important;
+}
+
+.selectorActive::after {
+    content: ' ';
+    width: 14px;
+    height: 3px;
+    background: #f2bf07;
+    bottom: -7px;
+    left: calc(50% - 7px);
+    position: absolute;
+    box-shadow: 0 0 5px 2px #f2bf07;
+    border-radius: 20%;
+}
+
+.selectorActive::before {
+    content: ' ';
+    width: 3px;
+    height: 3px;
+    background: #6e3dbc;
+    bottom: -7px;
+    left: calc(50% - 17px);
+    position: absolute;
+    box-shadow: 0 0 5px 2px #6e3dbc, 32px 0 0 0px #6e3dbc, 32px 0 5px 2px #6e3dbc;
+    border-radius: 100%;
+}
+
