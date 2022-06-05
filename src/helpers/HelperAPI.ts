@@ -17,3 +17,11 @@ export const getRecovered = (): Promise<any> => {
 export const getConfirmed = (): Promise<any> => {
     return fetch('https://covid19.mathdro.id/api/confirmed')
 }
+
+export const getCountriesInfoMay152022 = (): Promise<any> => {
+    return fetch('https://covid19.mathdro.id/api/daily/6-15-2020')
+}
+
+export const getCountriesInfoMay162022 = (): Promise<any> => {
+    return fetch('https://covid19.mathdro.id/api/daily/6-16-2020')
+}

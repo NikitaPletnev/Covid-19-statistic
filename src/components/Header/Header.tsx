@@ -1,9 +1,10 @@
 import React from 'react';
 import {Box, Button, styled} from "@mui/material";
-import image from '../images/CovidHeaderIMG.png'
-import '../styles/Header.css'
-import {firstLetterToUpperCase} from "../helpers/general";
+import image from '../../images/CovidHeaderIMG.png'
+import '../../styles/Header.css'
+import {firstLetterToUpperCase} from "../../helpers/general";
 import {Search, NotificationsNoneOutlined} from "@mui/icons-material";
+import {size} from "../../helpers/size";
 
 const HeaderBox = styled("header")({
     height: '85px',
@@ -17,7 +18,7 @@ const SelectorLink = styled('a')({
     position: "relative",
     fontWeight: "bold",
     cursor: "pointer",
-    marginRight: 50,
+    marginRight:  window.innerWidth > size.laptop ?  50 : '2%',
     textDecoration: "none",
     ':first-of-type': {
         marginLeft: 50

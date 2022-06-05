@@ -1,16 +1,17 @@
 import React from "react";
-import {ValuesTotalInterface} from "../store/interfaces/valuesTotalInterface";
+import {ValuesTotalInterface} from "../../store/interfaces/valuesTotalInterface";
 import {Box, styled, Typography} from "@mui/material";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import {formatNumber} from "../helpers/general";
+import {formatNumber} from "../../helpers/general";
+import {size} from "../../helpers/size";
 
 const StyledBox = styled(Box)({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    height: 180
+    height: '20%'
 })
 
 const StyledTypography = styled(Typography)({
@@ -22,7 +23,10 @@ const ItemBox = styled(Box)({
     background: '#FFF',
     marginRight: 25,
     borderRadius: 16,
-    padding: '45px 0'
+    padding: '45px 0',
+    '&:last-child': {
+        marginRight: window.innerWidth > size.laptop ?  25 : 0
+    }
 })
 
 const BarBox = styled(Box)({

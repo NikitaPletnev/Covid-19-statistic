@@ -1,4 +1,11 @@
-import {getConfirmed, getCountries, getDeaths, getRecovered, getValuesTotal} from "./HelperAPI";
+import {
+    getConfirmed,
+    getCountries,
+    getCountriesInfoMay152022, getCountriesInfoMay162022,
+    getDeaths,
+    getRecovered,
+    getValuesTotal
+} from "./HelperAPI";
 import {CountryInterface} from "../store/interfaces/countryInterface";
 import {setCountries} from "../store/actions/setCountries";
 import {setDeaths} from "../store/actions/setDeaths";
@@ -7,8 +14,10 @@ import {setRecovered} from "../store/actions/setRecovered";
 import {setConfirmed} from "../store/actions/setConfirmed";
 import {AnyAction} from "redux";
 import {Dispatch} from "react";
+import {setCountriesInfoMay152022} from "../store/actions/setCountriesInfoMay152022";
+import {setCountriesInfoMay162022} from "../store/actions/setCountriesInfoMay162022";
 
-export const init = (dispatch: Dispatch<AnyAction>) => {
+export const initDashboard = (dispatch: Dispatch<AnyAction>) => {
     getCountries().then((response) => {
         response.json().then((result: { countries: CountryInterface[] }) => {
             dispatch(setCountries(result.countries))
@@ -44,6 +53,20 @@ export const init = (dispatch: Dispatch<AnyAction>) => {
     getConfirmed().then((response) => {
         response.json().then((result: any) => {
             dispatch(setConfirmed(result))
+        })
+    }).catch((err) => {
+        console.log(err)
+    });
+    getCountriesInfoMay152022().then((response) => {
+        response.json().then((result: any) => {
+            dispatch(setCountriesInfoMay152022(result))
+        })
+    }).catch((err) => {
+        console.log(err)
+    });
+    getCountriesInfoMay162022().then((response) => {
+        response.json().then((result: any) => {
+            dispatch(setCountriesInfoMay162022(result))
         })
     }).catch((err) => {
         console.log(err)

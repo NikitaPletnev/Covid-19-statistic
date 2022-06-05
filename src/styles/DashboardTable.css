@@ -1,0 +1,11 @@
+.MuiDataGrid-virtualScroller::-webkit-scrollbar {
+    background: #ddd5ed;
+    border-radius: 16px;
+    width: 5px;
+    height: 5px;
+}
+
+.MuiDataGrid-virtualScroller::-webkit-scrollbar-thumb {
+    background: #8032f6;
+    border-radius: 16px;
+}

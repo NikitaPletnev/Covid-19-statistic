@@ -1,13 +1,13 @@
 import {ECBasicOption} from "echarts/types/dist/shared";
 import * as echarts from 'echarts';
 
-const setDiagramDashboard = () => {
+const setDiagramDashboard = (countries: string[], deaths: number[], activeCases: number[], recovered: number[]) => {
 
     type EChartsOption = echarts.EChartsOption;
 
-    var chartDom = document.getElementById('main')!;
-    var myChart = echarts.init(chartDom);
-    var option: EChartsOption;
+    const chartDom = document.getElementById('dashboardDiagram')!;
+    const  myChart = echarts.init(chartDom);
+    let option: EChartsOption;
 
     option = {
         tooltip: {
@@ -16,19 +16,31 @@ const setDiagramDashboard = () => {
                 type: 'shadow'
             }
         },
-        legend: {},
+        title: {
+          show: true,
+            text: 'Statistics',
+            left: 30
+        },
+        legend: {
+            right: '4%'
+        },
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '3%',
+            bottom: '14%',
+            top: '12%',
             containLabel: true
         },
-        xAxis: {
+        yAxis: {
             type: 'value'
         },
-        yAxis: {
+        xAxis: {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: countries
+        },
+        dataZoom: {
+            start: countries.length > 100 ? 93 : countries.length,
+            type: "inside"
         },
         series: [
             {
@@ -42,7 +54,7 @@ const setDiagramDashboard = () => {
                     focus: 'series'
                 },
                 color: '#fb5a09',
-                data: [320, 302, 301, 334, 390, 330, 320]
+                data: deaths
             },
             {
                 name: 'Total Recovered',
@@ -55,20 +67,20 @@ const setDiagramDashboard = () => {
                 emphasis: {
                     focus: 'series'
                 },
-                data: [120, 132, 101, 134, 90, 230, 210]
+                data: recovered
             },
             {
-                name: 'Total Cases',
+                name: 'Total Active Cases',
                 type: 'bar',
                 stack: 'total',
                 label: {
                     show: true
                 },
-                color: '#8531ff',
+                color: '#77d01b',
                 emphasis: {
                     focus: 'series'
                 },
-                data: [220, 182, 191, 234, 290, 330, 310]
+                data: activeCases
             },
         ]
     };

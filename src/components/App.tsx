@@ -4,8 +4,10 @@ import {
     Route,
     Routes
 } from "react-router-dom";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Dashboard from "../containers/Dashboard";
+import PageInDevelopment from "./StubElements/PageInDevelopment";
+import NoPage from "./StubElements/NoPage";
 
 function App() {
 
@@ -15,11 +17,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<Dashboard/>}/>
                 <Route path="/dashboard" element={<Dashboard/>}/>
-                <Route path="/countries" element={<span>Page in development</span>}/>
-                <Route path="/contagion" element={<span>Page in development</span>}/>
-                <Route path="/reports" element={<span>Page in development</span>}/>
-                <Route path="/prevention" element={<span>Page in development</span>}/>
-                <Route path="*" element={<span>Page not found</span>}/>
+                <Route path="/countries" element={<PageInDevelopment/>}/>
+                <Route path="/contagion" element={<PageInDevelopment/>}/>
+                <Route path="/reports" element={<PageInDevelopment/>}/>
+                <Route path="/prevention" element={<PageInDevelopment/>}/>
+                <Route path="*" element={<NoPage/>}/>
             </Routes>
         </BrowserRouter>
     );
